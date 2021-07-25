@@ -7,13 +7,16 @@
             <?php include('./includes/header.php') ?>
 			<!-- /Header -->
 			
+
 			<!-- Sidebar -->
             <?php include('./includes/sidebar.php') ?>
 			<!-- /Sidebar -->
 			
+
 			<!-- Page Wrapper -->
             <div class="page-wrapper">
 			
+
 				<!-- Page Content -->
                 <div class="content container-fluid">
 				
@@ -30,6 +33,7 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
+					
 					
 					<div class="faq-card">
 						<div class="card">

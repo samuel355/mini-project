@@ -51,7 +51,7 @@
 														<h5 class="company-role m-t-0 mb-0">Barry Cuda</h5>
 														<small class="text-muted">CEO</small>
 														<div class="staff-id">Employee ID : CLT-0001</div>
-														<div class="staff-msg"><a href="chat.html" class="btn btn-custom">Send Message</a></div>
+														<div class="staff-msg"><a href="#" class="btn btn-custom">Send Message</a></div>
 													</div>
 												</div>
 												<div class="col-md-7">
@@ -71,10 +71,6 @@
 														<li>
 															<span class="title">Address:</span>
 															<span class="text">5754 Airport Rd, Coosada, AL, 36020</span>
-														</li>
-														<li>
-															<span class="title">Gender:</span>
-															<span class="text">Male</span>
 														</li>
 													</ul>
 												</div>
