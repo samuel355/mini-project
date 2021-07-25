@@ -53,7 +53,7 @@
 							</div>
 							<div class="col-md-6">  
 								<div class="form-group">
-									<label class="col-form-label"> Digital Address <span class="text-danger">*</span></label>
+									<label class="col-form-label"> Address <span class="text-danger">*</span></label>
 									<input class="form-control floating" type="text">
 								</div>
 							</div>
