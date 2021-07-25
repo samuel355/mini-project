@@ -11,36 +11,68 @@
 						<a href="index.html"><img src="assets/img/logo2.png" alt="Dreamguy's Technologies"></a>
 					</div>
 					<!-- /Account Logo -->
-					
-					<div class="account-box">
-						<div class="account-wrapper">
-							<h3 class="account-title">Register</h3>
-							<p class="account-subtitle">Access to our dashboard</p>
-							
-							<!-- Account Form -->
-							<form action="index.html">
+
+					<!-- Register -->
+					<form>
+						<div class="row bg-white p-3">
+							<div class="col-md-6">
 								<div class="form-group">
-									<label>Email</label>
+									<label class="col-form-label">First Name <span class="text-danger">*</span></label>
 									<input class="form-control" type="text">
 								</div>
+							</div>
+							<div class="col-md-6">
 								<div class="form-group">
-									<label>Password</label>
+									<label class="col-form-label">Last Name</label>
+									<input class="form-control" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="col-form-label">Username <span class="text-danger">*</span></label>
+									<input class="form-control" type="text">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="col-form-label">Email <span class="text-danger">*</span></label>
+									<input class="form-control floating" type="email">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="col-form-label">Password</label>
 									<input class="form-control" type="password">
 								</div>
+							</div>
+							<div class="col-md-6">
 								<div class="form-group">
-									<label>Repeat Password</label>
+									<label class="col-form-label">Confirm Password</label>
 									<input class="form-control" type="password">
 								</div>
-								<div class="form-group text-center">
-									<button class="btn btn-primary account-btn" type="submit">Register</button>
+							</div>
+							<div class="col-md-6">  
+								<div class="form-group">
+									<label class="col-form-label"> Digital Address <span class="text-danger">*</span></label>
+									<input class="form-control floating" type="text">
 								</div>
-								<div class="account-footer">
-									<p>Already have an account? <a href="login.php">Login</a></p>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="col-form-label">Phone </label>
+									<input class="form-control" type="text">
 								</div>
-							</form>
-							<!-- /Account Form -->
+							</div>
+							
 						</div>
-					</div>
+						<div class="submit-section mb-3">
+							<button class="btn btn-primary submit-btn">REGISTER</button>
+						</div>
+
+						<div class="account-footer">
+							<p>Already have an account? <a href="login.php">Login</a></p>
+						</div>
+					</form>
 				</div>
 			</div>
         </div>
