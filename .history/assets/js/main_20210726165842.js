@@ -31,15 +31,6 @@ navbarToggler.addEventListener('click',function(){
     navbarToggler.classList.toggle("active");
 });
 
-var elements=document.getElementsByClassName("portfolio-btn");
-for(var i=0;i<elements.length;i++){
-    elements[i].onclick=function(){
-        var el=elements[0];while(el){
-            if(el.tagName==="BUTTON"){
-                el.classList.remove("active");
-            }
-        el=el.nextSibling;
-    }
-    this.classList.add("active");
-    };
-}})();
+var elements=document.getElementsByClassName("portfolio-btn");for(var i=0;i<elements.length;i++){elements[i].onclick=function(){var el=elements[0];while(el){if(el.tagName==="BUTTON"){el.classList.remove("active");}
+el=el.nextSibling;}
+this.classList.add("active");};}})();

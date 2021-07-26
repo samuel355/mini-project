@@ -38,7 +38,7 @@ for(var i=0;i<elements.length;i++){
             if(el.tagName==="BUTTON"){
                 el.classList.remove("active");
             }
-        el=el.nextSibling;
+    el=el.nextSibling;
     }
     this.classList.add("active");
     };
