@@ -28,8 +28,9 @@
                 <div class="col-lg-5 col-md-12 col-12 p-3 mb-3">
                     <div class="hero-content">
                         <h4 class="wow fadeInUp" data-wow-delay=".2s">We Are Waste Management Operative</h4>
-                        <h1 class="wow fadeInUp" data-wow-delay=".4s">We help clean your homes and your communities</h1>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Cleaniness is next to Godliness....Try as mush as possible to make your evironment clean and tidy.
+                        <h1 class="wow fadeInUp" data-wow-delay=".4s">Strategic Concepts For Businesses.</h1>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Invest your spare change in Bitcoin and save
+                            with<br> crypto to e arn interest in real time.
                         </p>
                         <div class="button wow fadeInUp" data-wow-delay=".8s">
                             <a href="about-us.php" class="btn ">Discover More</a>

@@ -29,7 +29,7 @@
                     <div class="hero-content">
                         <h4 class="wow fadeInUp" data-wow-delay=".2s">We Are Waste Management Operative</h4>
                         <h1 class="wow fadeInUp" data-wow-delay=".4s">We help clean your homes and your communities</h1>
-                        <p class="wow fadeInUp" data-wow-delay=".6s">Cleaniness is next to Godliness....Try as mush as possible to make your evironment clean and tidy.
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Cleani
                         </p>
                         <div class="button wow fadeInUp" data-wow-delay=".8s">
                             <a href="about-us.php" class="btn ">Discover More</a>
