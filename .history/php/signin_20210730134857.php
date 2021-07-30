@@ -47,6 +47,7 @@
                                 http_response_code(200);
                                 echo json_encode("Processing...");
                                 echo '<script>window.location.assign("http://localhost/mini-project/client")</script>';
+                         
                             }
                         }else{
                             http_response_code(400);

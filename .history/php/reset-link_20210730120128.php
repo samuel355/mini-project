@@ -32,31 +32,31 @@
             http_response_code(400);
             echo json_encode("Your Passwords do not match");
         }else{
-
-            $email = trim($_POST['email']);
+            $emal = trim($_POST['email']);
             $user_password = trim($_POST['password']);
             $user_password = PASSWORD_HASH($_POST['password'],PASSWORD_DEFAULT);
 
             try{
-                $query = "UPDATE users SET user_password=:user_password, reset_code=:reset_code WHERE email=:email";
+                $query = "UPDATE users SET user_password=:user_password WHERE email=:email";
                 $stmtt = $db->prepare($query);
                 $stmtt->execute([
                     ':user_password'=>$user_password,
-                    ':email'=>$email,
-                    ':reset_code'=>''
+                    ':email'=>$email
                 ]);
+
+                $data = $stmtt->fetch(PDO::FETCH_ASSOC);
+                if($data){
+                    http_response_code(200);
+                    echo json_encode('Password Changed Successfully');
+                    echo '<script>window.location.assign("http://localhost/mini-project/signin.php")</script>';
+                }else{
+                    http_response_code(400);
+                    $error_message = 'Sorry something went wrong...Contact the system admin ';
+                    echo json_encode($error_message);
+                }
 
             }catch(PDOException $e){
                 $_SESSION['error'] = $e->getMessage();
             }
-
-            http_response_code(200);
-            echo json_encode("Reset Successfully");
-            echo '<script>window.location.assign("http://localhost/mini-project/signin.php")</script>';
         }
-    }else{
-        http_response_code(400);
-        echo json_encode('Opps');
     }
-    exit;
-?>

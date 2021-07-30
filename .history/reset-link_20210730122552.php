@@ -56,7 +56,6 @@
                         </div>
                     </div>
                     <!--/notifications-->
-                    
                         <form method="POST" id="reset-link-form" role="form">
                             <div class="input-head">
                                 <div class="form-group input-group" style="display:none;">

@@ -10,6 +10,6 @@
 <script src="ajax/signup.js"></script>
 <script src="ajax/signin.js"></script>
 <script src="ajax/reset.js"></script>
-<script src="ajax/reset-link.js"></script>
+<script src="ajax/rese"></script>
 </body>
 </html>

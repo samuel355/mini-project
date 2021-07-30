@@ -1,6 +1,5 @@
 <?php include('./includes/head.php') ?>
 <body>
-  
 <!--[if lte IE 9]>
   <p class="browserupgrade">
     You are using an <strong>outdated</strong> browser. Please

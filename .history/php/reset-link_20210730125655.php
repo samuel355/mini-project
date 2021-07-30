@@ -51,7 +51,6 @@
             }
 
             http_response_code(200);
-            echo json_encode("Reset Successfully");
             echo '<script>window.location.assign("http://localhost/mini-project/signin.php")</script>';
         }
     }else{

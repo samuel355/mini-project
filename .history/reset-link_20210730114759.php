@@ -34,32 +34,9 @@
                 //If
                 if($row['reset_code']){
                     $output .= '
-                    
-                    <!--notifications-->
-                    <div class="row mb-3">
-                        <div class="col-12">
-
-                            <div id="process" class="alert alert-primary alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong>Processing ! .... </strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-
-                            <div id="alert" class="alert alert-danger alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong id="messages"></strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-
-                            <div id="succ" class="alert alert-info alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong id="done"></strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/notifications-->
-                    
                         <form method="POST" id="reset-link-form" role="form">
                             <div class="input-head">
-                                <div class="form-group input-group" style="display:none;">
+                                <div class="form-group input-group" style="">
                                     <label><i class="lni lni-lock-alt"></i></label>
                                     <input class="form-control" type="email" id="email" name="email" value="'.$email.'">
                                     
@@ -76,7 +53,7 @@
                                 </div>
 
                                 <div class="button">
-                                    <button class="btn" name="submit" type="submit" id="submit">Reset Account</button>
+                                    <button class="btn" name="submit" type="submit" id="submit">Create Account</button>
                                 </div>
                             </div>
                         </form>
@@ -109,6 +86,27 @@
                 <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
                     <div class="card login-form inner-content">
                         <div class="card-body">
+                            <!--notifications-->
+							<div class="row mb-3">
+								<div class="col-12">
+
+									<div id="process" class="alert alert-primary alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+										<strong>Processing ! .... </strong>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+									<div id="alert" class="alert alert-danger alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+										<strong id="messages"></strong>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+
+									<div id="succ" class="alert alert-info alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+										<strong id="done"></strong>
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+								</div>
+							</div>
+                            <!--/notifications-->
 
                             <?php echo $output ?> 
 

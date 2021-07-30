@@ -46,13 +46,18 @@
                     ':reset_code'=>''
                 ]);
 
+                if($data = $stmtt->fetch(PDO::FETCH_ASSOC)){
+                    http_response_code(200);
+                    echo '<script>window.location.assign("http://localhost/mini-project/signin.php")</script>';
+                }else{
+                    http_response_code(400);
+                    $error_message = 'Sorry something went wrong...Contact the system admin ';
+                    echo json_encode($error_message);
+                }
+
             }catch(PDOException $e){
                 $_SESSION['error'] = $e->getMessage();
             }
-
-            http_response_code(200);
-            echo json_encode("Reset Successfully");
-            echo '<script>window.location.assign("http://localhost/mini-project/signin.php")</script>';
         }
     }else{
         http_response_code(400);

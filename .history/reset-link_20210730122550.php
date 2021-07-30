@@ -35,28 +35,6 @@
                 if($row['reset_code']){
                     $output .= '
                     
-                    <!--notifications-->
-                    <div class="row mb-3">
-                        <div class="col-12">
-
-                            <div id="process" class="alert alert-primary alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong>Processing ! .... </strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-
-                            <div id="alert" class="alert alert-danger alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong id="messages"></strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-
-                            <div id="succ" class="alert alert-info alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
-                                <strong id="done"></strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/notifications-->
-                    
                         <form method="POST" id="reset-link-form" role="form">
                             <div class="input-head">
                                 <div class="form-group input-group" style="display:none;">
