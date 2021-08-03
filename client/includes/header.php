@@ -133,7 +133,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt="">
                         <span class="status online"></span></span>
-                        <span>Admin</span>
+                        <span><?php echo $row['firstname'] ?></span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="client-profile.php">My Profile</a>
