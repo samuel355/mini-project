@@ -36,18 +36,14 @@
         ]);
       
         $calenderId = $connect->lastInsertId();
+        header('location: ../events.php');
 
       }catch(PDOException $e){
         $_SESSION['error'] = $e->getMessage();
       }
-
-      http_response_code(200);
-      echo json_encode("Added successfully");
-
-      echo '<script>window.location.assign("http://localhost/mini-project/admin/events.php")</script>';
     }
 
   }
-exit;
+
 
 ?>

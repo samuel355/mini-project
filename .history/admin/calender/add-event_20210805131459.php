@@ -12,7 +12,7 @@
     $end_ = $_POST['end_'];
     $color = $_POST['color'];
 
-    if(empty($title)){
+    if(empty($start_)){
       http_response_code(400);
       echo json_encode("Pleae enter the title");
     }elseif(empty($description_)){
@@ -28,7 +28,7 @@
         $statement = $connect->prepare($query);
       
         $statement->execute([
-          ':title' => $title,
+          ':title' => $title_,
           ':start_' => $start_,
           ':end_' => $end_,
           ':description_' => $description_,
@@ -36,18 +36,14 @@
         ]);
       
         $calenderId = $connect->lastInsertId();
+        header('location: ../events.php');
 
       }catch(PDOException $e){
         $_SESSION['error'] = $e->getMessage();
       }
-
-      http_response_code(200);
-      echo json_encode("Added successfully");
-
-      echo '<script>window.location.assign("http://localhost/mini-project/admin/events.php")</script>';
     }
 
   }
-exit;
+
 
 ?>

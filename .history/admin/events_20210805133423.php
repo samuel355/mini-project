@@ -215,7 +215,7 @@
 				<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-								<form class="form-horizontal" method="POST" action="calender/update.php">
+								<form class="form-horizontal" method="POST" action="./core/edit-title.php">
 								<div class="modal-header">
 								<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -257,7 +257,6 @@
 											
 											</div>
 										</div>
-
 										<script>
 											function toggleCheck(check) {
 												if ($('#'+check).is(':checked')) {
@@ -269,7 +268,6 @@
 												}
 											}		  
 										</script>
-
 									<input type="hidden" name="id" class="form-control" id="id">
 									
 									

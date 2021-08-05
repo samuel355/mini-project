@@ -18,7 +18,6 @@
 	}
 
 	$executeQuery = $prepareQuery->execute();
-
 	if ($executeQuery == false) {
 	 print_r($prepareQuery->errorInfo());
 	 die ('Error executing the query.');
@@ -28,15 +27,15 @@
 	
 	$id = $_POST['id'];
 	$title = $_POST['title'];
-	$description_ = $_POST['description'];
+	$description = $_POST['description'];
 	$color = $_POST['color'];
 	
-	$sql = "UPDATE events SET  title = '$title', description_ = '$description_', color = '$color' WHERE id = $id ";
+	$sql = "UPDATE events SET  title = '$title', description = '$description', color = '$color' WHERE id = $id ";
 
-	$prepareQuery = $connect->prepare($sql);
+	$prepareQuery = $auth->prepare($sql);
 
 	if ($prepareQuery == false) {
-	 print_r($connect->errorInfo());
+	 print_r($ci->errorInfo());
 	 die ('Error preparing the query.');
 	}
 
@@ -48,5 +47,5 @@
 	}
 }
 
-echo '<script>window.location.assign("http://localhost/mini-project/admin/events.php")</script>';
+header('Location: ../index.php');	
 ?>

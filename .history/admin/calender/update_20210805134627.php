@@ -31,7 +31,7 @@
 	$description_ = $_POST['description'];
 	$color = $_POST['color'];
 	
-	$sql = "UPDATE events SET  title = '$title', description_ = '$description_', color = '$color' WHERE id = $id ";
+	$sql = "UPDATE events SET  title = '$title', description = '$description', color = '$color' WHERE id = $id ";
 
 	$prepareQuery = $connect->prepare($sql);
 

@@ -215,7 +215,7 @@
 				<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-								<form class="form-horizontal" method="POST" action="calender/update.php">
+								<form class="form-horizontal" method="POST" action="./core/edit-title.php">
 								<div class="modal-header">
 								<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -251,25 +251,23 @@
 									</div>
 										<div class="form-group"> 
 											<div class="col-sm-2">
-												<label onclick="toggleCheck('check1');" class="label-off text-danger font-weight-bold" for="check1" id="check1_label">
-													Delete <input class="nocheckbox" type="checkbox" id="check1" name="delete">
-												</label>
+											<label onclick="toggleCheck('check1');" class="label-off text-danger font-weight-bold" for="check1" id="check1_label">
+											Delete 
+											</label>
 											
 											</div>
 										</div>
-
 										<script>
-											function toggleCheck(check) {
-												if ($('#'+check).is(':checked')) {
-													$('#'+check+'_label').removeClass('label-on');
-													$('#'+check+'_label').addClass('label-off');
-												} else {
-													$('#'+check+'_label').addClass('label-on');
-													$('#'+check+'_label').removeClass('label-off');
-												}
-											}		  
+										function toggleCheck(check) {
+											if ($('#'+check).is(':checked')) {
+												$('#'+check+'_label').removeClass('label-on');
+												$('#'+check+'_label').addClass('label-off');
+											} else {
+												$('#'+check+'_label').addClass('label-on');
+												$('#'+check+'_label').removeClass('label-off');
+											}
+										}		  
 										</script>
-
 									<input type="hidden" name="id" class="form-control" id="id">
 									
 									

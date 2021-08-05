@@ -43,8 +43,6 @@
 
       http_response_code(200);
       echo json_encode("Added successfully");
-
-      echo '<script>window.location.assign("http://localhost/mini-project/admin/events.php")</script>';
     }
 
   }
