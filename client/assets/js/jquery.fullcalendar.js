@@ -1,3 +1,51 @@
+var	body = $('#body');
+var	modal = $('#event-modal');
+var	event = $('#external-events div.external-event');
+var	saveCategory = $('.save-category');
+var	categoryForm =$('#add-category form');
+var	extEvents = $('#exter4nal-events');
+var body = $('#body');
+
+
+<div id="calendarModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            <div id="modalBody" class="modal-body"> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+					
+eventClick:  function(event, jsEvent, view) {
+    $('#modalTitle').html(event.title);
+    $('#modalBody').html(event.description);
+    $('#eventUrl').attr('href',event.url);
+    $('#calendarModal').modal();
+}
+
+var title = prompt(form);
+if(title)
+{
+    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+    var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+        $.ajax({
+        url:"./calender/insert.php",
+        type:"POST",
+        data:{title:title, start:start, end:end},
+        success:function()
+        {
+            calendar.fullCalendar('refetchEvents');
+            alert("Added Successfully");
+        }
+    })
+}
+
 
 !function($) {
     "use strict";
@@ -34,6 +82,7 @@
                 eventObj.remove();
             }
     },
+
     /* on click on event */
     CalendarApp.prototype.onEventClick =  function (calEvent, jsEvent, view) {
         var $this = this;
@@ -139,24 +188,24 @@
         var form = '';
         var today = new Date($.now());
 
-        var defaultEvents =  [{
-                title: 'Event Name 4',
-                start: new Date($.now() + 148000000),
-            },
+
+        
+        var defaultEvents =  [
+            
             {
                 title: 'Dustbin Full',
                 start: today,
                 end: today,
             },
-            {
-                title: 'Almost Full',
-                start: new Date($.now() + 168000000),
-            },
+            
             {
                 title: 'come and take',
                 start: new Date($.now() + 338000000),
-            }];
+            }
+        ];
+        
 
+    
             
         var $this = this;
         
@@ -189,6 +238,7 @@
             var categoryName = $this.$categoryForm.find("input[name='category-name']").val();
             var categoryColor = $this.$categoryForm.find("select[name='category-color']").val();
             if (categoryName !== null && categoryName.length != 0) {
+
                 $this.$extEvents.append('<div class="external-event bg-' + categoryColor + '" data-class="bg-' + categoryColor + '" style="position: relative;"><i class="mdi mdi-checkbox-blank-circle m-r-10 vertical-middle"></i>' + categoryName + '</div>')
                 $this.enableDrag();
             }
@@ -196,7 +246,7 @@
         });
     },
 
-   //init CalendarApp
+//init CalendarApp
     $.CalendarApp = new CalendarApp, $.CalendarApp.Constructor = CalendarApp
     
 }(window.jQuery),

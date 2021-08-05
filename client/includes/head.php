@@ -2,12 +2,12 @@
     session_start();
     include 'includes/db.php';
 
-    if(!isset($_SESSION['email']) && !isset($_SESSION['login']) && !isset($_SESSION['client'])){
+    if(!isset($_SESSION['email']) && !isset($_SESSION['login']) && !isset($_SESSION['admin'])){
         header('location: ../index.php');
     }else{
         $email = $_SESSION['email'];
         $success = $_SESSION['login'];
-        $client = $_SESSION['client'] ;
+        $admin = $_SESSION['admin'] ;
 
         try{
             $query = "SELECT * FROM users WHERE email=:email";
@@ -56,6 +56,5 @@
 		<link rel="stylesheet" href="assets/css/fullcalendar.min.css">
 		
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-		
-    </head>
+        <link rel="stylesheet" href="assets/css/style.css">	
+</head>

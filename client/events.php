@@ -1,17 +1,86 @@
-	<?php
-		require_once('./includes/head.php');
-	?>
+<?php 
+    session_start();
+    include 'includes/db.php';
+
+    if(!isset($_SESSION['email']) && !isset($_SESSION['login']) && !isset($_SESSION['admin'])){
+        header('location: ../index.php');
+    }else{
+        $email = $_SESSION['email'];
+        $success = $_SESSION['login'];
+        $admin = $_SESSION['admin'] ;
+
+        try{
+            $query = "SELECT * FROM users WHERE email=:email";
+
+			$stmt = $db->prepare($query);
+            $stmt->execute([
+                ':email'=>$email,
+            ]);
+            $row = $stmt->fetch();
+
+        }catch (PDOException $e){
+            $_SESSION['error'] = $e->getMessage();
+        }
+    }
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta name="description" content="Smarthr - Bootstrap Admin Template">
+		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Waste Management</title>
+		
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+		
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Lineawesome CSS -->
+        <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
+		
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+		
+		<!-- Calendar CSS -->
+		<link rel="stylesheet" href="assets/css/fullcalendar.min.css">
+		
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+	
+</head>
 
     <body>
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
 		
 			<!-- Header -->
-            <?php include('./includes/header.php') ?>
+            <?php include'./includes/header.php' ?>
 			<!-- /Header -->
 			
 			<!-- Sidebar -->
-            <?php include('./includes/sidebar.php') ?>
+            <?php include'./includes/sidebar.php' ?>
 			<!-- /Sidebar -->
 			
 			<!-- Page Wrapper -->
@@ -30,13 +99,9 @@
 									<li class="breadcrumb-item active">Events</li>
 								</ul>
 							</div>
-							<div class="col-auto float-right ml-auto">
-								<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_event"><i class="fa fa-plus"></i> Add Event</a>
-							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
-					
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="card mb-0">
@@ -58,113 +123,169 @@
 				<!-- /Page Content -->
 			
 				<!-- Add Event Modal -->
-				<div id="add_event" class="modal custom-modal fade" role="dialog">
-					<div class="modal-dialog modal-dialog-centered" role="document">
+				
+				<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Add Event</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+
+						<!--notifications-->
+						<div class="row">
+							<div class="col-12">
+
+								<div id="process" class="alert alert-primary alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+									<strong>Processing ! .... </strong>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+								<div id="alert" class="alert alert-danger alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+									<strong id="messages"></strong>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
+
+								<div id="succ" class="alert alert-info alert-dismissible fade show form-group input-group" role="alert" style="display: none;">
+									<strong id="done"></strong>
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								</div>
 							</div>
-							<div class="modal-body">
-								<form>
+						</div>
+						<!--/notifications-->
+						
+						<form id="addEvent-form" class="form-horizontal" method="POST">
+								
+								<div class="modal-header">
+									<h4 class="modal-title" id="myModalLabel">Add Event</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								</div>
+								<div class="modal-body">
+									
 									<div class="form-group">
-										<label>Event Name <span class="text-danger">*</span></label>
-										<input class="form-control" type="text">
-									</div>
-									<div class="form-group">
-										<label>Event Date <span class="text-danger">*</span></label>
-										<div class="cal-icon">
-											<input class="form-control datetimepicker" type="text">
+										<label for="title" class="col-sm-2 control-label">Title</label>
+										<div class="col-sm-10">
+										<input type="text" name="title" class="form-control" id="title" placeholder="Title">
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label">Category</label>
-										<select class="select form-control">
-											<option>Danger</option>
-											<option>Success</option>
-											<option>Purple</option>
-											<option>Primary</option>
-											<option>Pink</option>
-											<option>Info</option>
-											<option>Inverse</option>
-											<option>Orange</option>
-											<option>Brown</option>
-											<option>Teal</option>
-											<option>Warning</option>
-										</select>
+										<label for="description" class="col-sm-2 control-label">Description</label>
+										<div class="col-sm-10">
+											<input type="text" name="description_" class="form-control" id="description" placeholder="Description">
+										</div>
 									</div>
-									<div class="submit-section">
-										<button class="btn btn-primary submit-btn">Submit</button>
+									<div class="form-group">
+										<label for="color" class="col-sm-2 control-label">Color</label>
+										<div class="col-sm-10">
+											<select name="color" class="form-control" id="color">
+												<option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+												<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
+												<option style="color:#008000;" value="#008000">&#9724; Green</option>						  
+												<option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
+												<option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
+												<option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+												<option style="color:#000;" value="#000">&#9724; Black</option>
+											</select>
+										</div>
 									</div>
-								</form>
-							</div>
+									<div class="container">
+										<div class="row">
+											<div class="form-group">
+												<label for="start" class="col-sm-12 control-label">Start date</label>
+												<div class="col-sm-12">
+												<input type="text" name="start_" class="form-control" id="start" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="end" class="col-sm-12 control-label">End date</label>
+												<div class="col-sm-12">
+												<input type="text" name="end_" class="form-control" id="end" readonly>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 				<!-- /Add Event Modal -->
 				
 				<!-- Event Modal -->
-				<div class="modal custom-modal fade" id="event-modal">
-					<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
 						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Event</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body"></div>
-							<div class="modal-footer text-center">
-								<button type="button" class="btn btn-success submit-btn save-event">Create event</button>
-								<button type="button" class="btn btn-danger submit-btn delete-event" data-dismiss="modal">Delete</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Event Modal -->
-				
-				<!-- Add Category Modal-->
-				<div class="modal custom-modal fade" id="add-category">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Add a category</h4>
-							</div>
-							<div class="modal-body p-20">
-								<form>
-									<div class="row">
-										<div class="col-md-6">
-											<label class="col-form-label">Category Name</label>
-											<input class="form-control" placeholder="Enter name" type="text" name="category-name">
+								<form class="form-horizontal" method="POST" action="calender/update.php">
+								<div class="modal-header">
+								<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								</div>
+								<div class="modal-body">
+									
+									<div class="form-group">
+										<label for="title" class="col-sm-2 control-label">Title</label>
+										<div class="col-sm-10">
+										<input type="text" name="title" class="form-control" id="title" placeholder="Title">
 										</div>
-										<div class="col-md-6">
-											<label class="col-form-label">Choose Category Color</label>
-											<select class="form-control" data-placeholder="Choose a color..." name="category-color">
-												<option value="success">Success</option>
-												<option value="danger">Danger</option>
-												<option value="info">Info</option>
-												<option value="pink">Pink</option>
-												<option value="primary">Primary</option>
-												<option value="warning">Warning</option>
-												<option value="orange">Orange</option>
-												<option value="brown">Brown</option>
-												<option value="teal">Teal</option>
+									</div>
+									<div class="form-group">
+										<label for="description" class="col-sm-2 control-label">Description</label>
+										<div class="col-sm-10">
+										<input type="text" name="description" class="form-control" id="description" placeholder="Description">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="color" class="col-sm-2 control-label">Color</label>
+										<div class="col-sm-10">
+										<select name="color" class="form-control" id="color">
+											<option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+											<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
+											<option style="color:#008000;" value="#008000">&#9724; Green</option>						  
+											<option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
+											<option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
+											<option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+											<option style="color:#000;" value="#000">&#9724; Black</option>
+											
 											</select>
 										</div>
 									</div>
+										<div class="form-group"> 
+											<div class="col-sm-2">
+												<label onclick="toggleCheck('check1');" class="label-off text-danger font-weight-bold" for="check1" id="check1_label">
+													Delete <input class="nocheckbox" type="checkbox" id="check1" name="delete">
+												</label>
+											
+											</div>
+										</div>
+
+										<script>
+											function toggleCheck(check) {
+												if ($('#'+check).is(':checked')) {
+													$('#'+check+'_label').removeClass('label-on');
+													$('#'+check+'_label').addClass('label-off');
+												} else {
+													$('#'+check+'_label').addClass('label-on');
+													$('#'+check+'_label').removeClass('label-off');
+												}
+											}		  
+										</script>
+
+									<input type="hidden" name="id" class="form-control" id="id">
+									
+									
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
 								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-danger save-category" data-dismiss="modal">Save</button>
 							</div>
 						</div>
 					</div>
+
 				</div>
-				<!-- /Add Category Modal-->
+				<!-- /Event Modal -->
+
 				
             </div>
 			<!-- /Page Wrapper -->
@@ -173,5 +294,5 @@
 		<!-- /Main Wrapper -->
 		
 	<?php
-		require_once('./includes/scripts.php');
+		include'./includes/scripts.php';
 	?>
