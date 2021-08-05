@@ -195,7 +195,7 @@
 											<div class="form-group">
 												<label for="end" class="col-sm-12 control-label">End date</label>
 												<div class="col-sm-12">
-												<input type="text" name="end_" class="form-control" id="end" readonly>
+												<input type="text" name="end" class="form-control" id="end" readonly>
 												</div>
 											</div>
 										</div>

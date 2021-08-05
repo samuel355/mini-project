@@ -12,18 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $end_ = $_POST['end_'];
   $color = $_POST['color'];
 
-  if(empty($start_)){
-    http_response_code(400);
-    echo json_encode("Pleae enter the title");
-  }elseif(empty($description_)){
-    http_response_code(400);
-    echo json_encode("Please add description");
-  }elseif(empty($color)){
-    http_response_code(400);
-    echo json_encode("Please choose color");
-  }
-
-  $query = "INSERT INTO calender (title, start_, end_, description_, color) VALUES (:title, :start_, :end_, :description_, :color)";
+  $query = "INSERT INTO calender (calender_title, star_date, end_date) VALUES (:calender_title, :star_date, :end_date)";
 
   $statement = $connect->prepare($query);
 
@@ -31,8 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     ':title' => $title_,
     ':start_' => $start_,
     ':end_' => $end_,
-    ':description_' => $description_,
-    ':color' => $color,
+    ':descri'
   ]);
 
   $calenderId = $connect->lastInsertId();

@@ -18,9 +18,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   }elseif(empty($description_)){
     http_response_code(400);
     echo json_encode("Please add description");
-  }elseif(empty($color)){
+  }eleif(empty($color)){
     http_response_code(400);
-    echo json_encode("Please choose color");
+    echo json_encode
   }
 
   $query = "INSERT INTO calender (title, start_, end_, description_, color) VALUES (:title, :start_, :end_, :description_, :color)";

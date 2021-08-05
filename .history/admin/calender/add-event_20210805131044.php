@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   }elseif(empty($description_)){
     http_response_code(400);
     echo json_encode("Please add description");
-  }elseif(empty($color)){
+  }eleif(empty($color)){
     http_response_code(400);
     echo json_encode("Please choose color");
   }

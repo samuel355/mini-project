@@ -13,14 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   $color = $_POST['color'];
 
   if(empty($start_)){
-    http_response_code(400);
-    echo json_encode("Pleae enter the title");
-  }elseif(empty($description_)){
-    http_response_code(400);
-    echo json_encode("Please add description");
-  }elseif(empty($color)){
-    http_response_code(400);
-    echo json_encode("Please choose color");
+    http_response_code(400)
   }
 
   $query = "INSERT INTO calender (title, start_, end_, description_, color) VALUES (:title, :start_, :end_, :description_, :color)";
