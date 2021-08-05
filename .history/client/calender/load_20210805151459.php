@@ -3,14 +3,15 @@
 //load.php
 
 $connect = new PDO('mysql:host=localhost;dbname=mini_project', 'root', '');
+$email = $_SESSION['email'];
 
 $data = array();
 
-$query = "SELECT * FROM calender ORDER BY id";
+$query = "SELECT * FROM events ORDER BY id WHERE email=:email";
 
 $statement = $connect->prepare($query);
 
-$statement->execute();
+$statement->execute([':email' => $email]);
 
 $result = $statement->fetchAll();
 
@@ -19,8 +20,10 @@ foreach($result as $row)
  $data[] = array(
   'id'   => $row["id"],
   'title'   => $row["title"],
-  'start'   => $row["start_date"],
-  'end'   => $row["end_date"]
+  'description' => $row['description_'],
+  'start'   => $row["start_"],
+  'end'   => $row["end_"],
+  'color' => $row["color"]
  );
 }
 
