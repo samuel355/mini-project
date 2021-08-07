@@ -96,7 +96,7 @@
 												<div class="col-md-6">
 													<div class="form-group">
 														<input name="map-address" id="pac-input" class="mt-2 form-control"type="text" placeholder="Search Box"/>
-														<input style="display: none;" name="email" type="text" class="form-control" value="<?php echo $row['email'] ?>">
+														<input syt type="text" class="form-control" value="<?php echo $row['email'] ?>">
 													</div>
 												</div>
 											</div>

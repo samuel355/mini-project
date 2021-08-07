@@ -96,16 +96,12 @@
 												<div class="col-md-6">
 													<div class="form-group">
 														<input name="map-address" id="pac-input" class="mt-2 form-control"type="text" placeholder="Search Box"/>
-														<input style="display: none;" name="email" type="text" class="form-control" value="<?php echo $row['email'] ?>">
 													</div>
 												</div>
 											</div>
 											
 											<div style="height: 400px; width: 100%" id="map"></div>
-
-											<div class="staff-msg mb-3">
-												<button type="submit" name="submit" class="btn btn-custom" >set your exact location</button>
-											</div>
+											<div class="staff-msg mb-3"><button href="#" class="btn btn-custom" >set your exact location</button></div>
 										</form>
 										
 									</div>
