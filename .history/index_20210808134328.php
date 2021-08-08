@@ -149,7 +149,7 @@
                 <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".9s">
                     <div class="single-team">
                         <div class="team-image">
-                            <img src="assets/images/user" alt="#">
+                            <img src="assets/images/team/team3.jpg" alt="#">
                         </div>
                         <div class="content">
                             <h4>Emmanuel Boateng
