@@ -164,7 +164,7 @@
 												<input class="form-control" name="lastname" id="lastname" value="<?php echo $row['lastname']?>" type="text">
 											</div>
 										</div>
-										<div class="col-md-6" style="display: none">
+										<div class="col-md-6" styl="display: none">
 											<div class="form-group">
 												<label class="col-form-label">Photo <span class="text-danger">*</span></label>
 												<input class="form-control" name="user_image" id="user_image" type="file">

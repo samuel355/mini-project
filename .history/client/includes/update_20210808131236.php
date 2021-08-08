@@ -49,7 +49,7 @@
 
                 http_response_code(200);
                 echo json_encode('You have Updated your profile succesfully.');
-                header('location: ../client-profile.php');
+                
          }
 
     } else {

@@ -23,24 +23,33 @@
             $email = trim($_POST['email']);
             $user_address = trim($_POST['user_address']);
             $phone = $_POST['phone'];
+            $user_image = $_FILES['user_image']['name'];
 
+            if(!empty($user_image)){
+                move_uploaded_file($_FILES['user_image']['tmp_name'], '../assets/img/profiles/'.$user_image);
+                $filename = $user_image;
+            }
+            else{
+                $filename = '';
+            }
 
 
                 try {
-                    $query = "UPDATE users SET firstname=:firstname, lastname=:lastname, user_address=:user_address, phone=:phone WHERE email=:email";
+                    $query = "UPDATE users SET firstname=:firstname, lastname=:lastname, user_address=:user_address, phone=:phone, user_image=:user_image WHERE email=:email";
                     $stmt = $db->prepare($query);
                     $stmt->execute([
                         ':firstname'=>$firstname, 
                         ':lastname'=>$lastname, 
                         ':user_address'=>$user_address,  
-                        ':phone'=>$phone,
+                        ':phone'=>$phone, 
+                        ':user_image'=>$filename, 
                         ':email'=>$email
                     ]);
 
                     $_SESSION['success'] = 'Account updated successfully';
 
                     $userid = $db->lastInsertId();
-                    header('location: ../client-profile.php');
+                    header('location: client-profile.php');
                     
 
                 }catch(PDOException $e){
@@ -49,7 +58,6 @@
 
                 http_response_code(200);
                 echo json_encode('You have Updated your profile succesfully.');
-                header('location: ../client-profile.php');
          }
 
     } else {

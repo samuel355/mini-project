@@ -27,20 +27,21 @@
 
 
                 try {
-                    $query = "UPDATE users SET firstname=:firstname, lastname=:lastname, user_address=:user_address, phone=:phone WHERE email=:email";
+                    $query = "UPDATE users SET firstname=:firstname, lastname=:lastname, user_address=:user_address, phone=:phone, user_image=:user_image WHERE email=:email";
                     $stmt = $db->prepare($query);
                     $stmt->execute([
                         ':firstname'=>$firstname, 
                         ':lastname'=>$lastname, 
                         ':user_address'=>$user_address,  
-                        ':phone'=>$phone,
+                        ':phone'=>$phone, 
+                        ':user_image'=>$filename, 
                         ':email'=>$email
                     ]);
 
                     $_SESSION['success'] = 'Account updated successfully';
 
                     $userid = $db->lastInsertId();
-                    header('location: ../client-profile.php');
+                    header('location: client-profile.php');
                     
 
                 }catch(PDOException $e){
@@ -49,7 +50,6 @@
 
                 http_response_code(200);
                 echo json_encode('You have Updated your profile succesfully.');
-                header('location: ../client-profile.php');
          }
 
     } else {
