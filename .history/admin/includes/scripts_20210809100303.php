@@ -94,14 +94,6 @@
 
 		<script src="calender/add-event.js"></script>
 		<script src="includes/update.js"></script>
-
-		
-		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jQOcOFgfWrdqFWXvCl3RzsyS_c1DYmY&callback=initAutocomplete&libraries=places&v=weekly"
-		async
-		></script>
-		
-		<script src="auto.js"></script>
 		
     </body>
 </html>

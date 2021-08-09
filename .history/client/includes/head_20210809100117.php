@@ -2,12 +2,12 @@
     session_start();
     include 'includes/db.php';
 
-    if(!isset($_SESSION['email']) && !isset($_SESSION['login']) && !isset($_SESSION['admin'])){
+    if(!isset($_SESSION['email']) && !isset($_SESSION['login']) && !isset($_SESSION['client'])){
         header('location: ../index.php');
     }else{
         $email = $_SESSION['email'];
         $success = $_SESSION['login'];
-        $admin = $_SESSION['admin'] ;
+        $client = $_SESSION['client'] ;
 
         try{
             $query = "SELECT * FROM users WHERE email=:email";
@@ -57,5 +57,6 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">	
+
         <script src="./auto.js"></script>
 </head>

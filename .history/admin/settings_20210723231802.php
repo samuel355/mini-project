@@ -40,7 +40,7 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Contact Person</label>
-											<input class="form-control " value="Adu" type="text">
+											<input class="form-control " value="Samuel Osei Adu" type="text">
 										</div>
 									</div>
 								</div>
@@ -48,7 +48,7 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<label>Address</label>
-											<input class="form-control " value="KNUST - KUMASI" type="text">
+											<input class="form-control " value="Plot 16, Wembley Estate, Tema" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-6 col-lg-3">
@@ -70,10 +70,9 @@
 										<div class="form-group">
 											<label>State/Province/Region</label>
 											<select class="form-control select">
-											<option>Ashanti</option>
 												<option>Ahafo</option>
 												<option>Bono</option>
-												
+												<option>Ashanti</option>
 											</select>
 										</div>
 									</div>
@@ -88,13 +87,13 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Email</label>
-											<input class="form-control" value="wastemanagement@pikadrop.com" type="email">
+											<input class="form-control" value="addsamuel355@gmail.com" type="email">
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Phone Number</label>
-											<input class="form-control" value="+233 3898 98444" type="text">
+											<input class="form-control" value="+233 246562377" type="text">
 										</div>
 									</div>
 								</div>
@@ -102,7 +101,7 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Mobile Number</label>
-											<input class="form-control" value="+233 50 158 8849" type="text">
+											<input class="form-control" value="+233 50 158 8449" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6">

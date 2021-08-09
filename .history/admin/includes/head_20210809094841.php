@@ -57,5 +57,4 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">	
-        <script src="./auto.js"></script>
 </head>

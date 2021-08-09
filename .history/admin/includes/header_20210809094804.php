@@ -79,7 +79,7 @@
                                         while($data = $prep->fetch(PDO::FETCH_ASSOC)){
                                             echo '
                                                 <li class="notification-message">
-                                                    <a href="activities.php">
+                                                    <a href="activities.html">
                                                         <div class="media">
                                                             <span class="avatar">
                                                                 <img alt="" src="assets/img/profiles/avatar-02.jpg">

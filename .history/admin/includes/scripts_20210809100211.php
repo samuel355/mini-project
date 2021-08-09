@@ -88,20 +88,41 @@
 					events: './calender/load.php'
 				});
 				
+				function edit(event){
+					start = event.start.format('YYYY-MM-DD HH:mm:ss');
+					if(event.end){
+						end = event.end.format('YYYY-MM-DD HH:mm:ss');
+					}else{
+						end = start;
+					}
+					
+					id =  event.id;
+					
+					Event = [];
+					Event[0] = id;
+					Event[1] = start;
+					Event[2] = end;
+					
+					$.ajax({
+					url: './core/edit-date.php',
+					type: "POST",
+					data: {Event:Event},
+					success: function(rep) {
+							if(rep == 'OK'){
+								alert('Saved');
+							}else{
+								alert('Could not be saved. try again.'); 
+							}
+						}
+					});
+				}
+				
 			});
 
 		</script>
 
 		<script src="calender/add-event.js"></script>
 		<script src="includes/update.js"></script>
-
-		
-		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jQOcOFgfWrdqFWXvCl3RzsyS_c1DYmY&callback=initAutocomplete&libraries=places&v=weekly"
-		async
-		></script>
-		
-		<script src="auto.js"></script>
 		
     </body>
 </html>

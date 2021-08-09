@@ -94,7 +94,7 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Phone Number</label>
-											<input class="form-control" value="+233 3898 98444" type="text">
+											<input class="form-control" value="+233 3" type="text">
 										</div>
 									</div>
 								</div>
@@ -102,7 +102,7 @@
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label>Mobile Number</label>
-											<input class="form-control" value="+233 50 158 8849" type="text">
+											<input class="form-control" value="+233 50 158 8449" type="text">
 										</div>
 									</div>
 									<div class="col-sm-6">

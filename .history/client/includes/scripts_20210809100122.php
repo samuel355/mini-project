@@ -51,6 +51,7 @@
 						$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
 						$('#ModalAdd').modal('show');
 					},
+
 					eventAfterRender: function(eventObj, $el) {
 						var request = new XMLHttpRequest();
 						request.open('GET', '', true);
@@ -75,16 +76,26 @@
 							$('#ModalEdit').modal('show');
 						});
 					},
-					eventDrop: function(event, delta, revertFunc) { // si changement de position
+
+					eventDrop: function (event, delta) {
+						var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+						var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+						$.ajax({
+							url: './calender/edit-date.php',
+							data: 'title=' + event.title + '&start=' + start + '&end=' + end + '&id=' + event.id,
+							type: "POST",
+							success: function (response) {
+								displayMessage("Updated Successfully");
+							}
+						});
+                	},
+
+					eventResize: function(event,dayDelta,minuteDelta,revertFunc) { 
 
 						edit(event);
 
 					},
-					eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
 
-						edit(event);
-
-					},
 					events: './calender/load.php'
 				});
 				
@@ -95,13 +106,11 @@
 		<script src="calender/add-event.js"></script>
 		<script src="includes/update.js"></script>
 
-		
 		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jQOcOFgfWrdqFWXvCl3RzsyS_c1DYmY&callback=initAutocomplete&libraries=places&v=weekly"
-		async
-		></script>
-		
-		<script src="auto.js"></script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jQOcOFgfWrdqFWXvCl3RzsyS_c1DYmY&callback=initAutocomplete&libraries=places&v=weekly"
+      async
+    ></script>
+    <script src="auto.js"></script>
 		
     </body>
 </html>

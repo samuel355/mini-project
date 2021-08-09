@@ -61,21 +61,7 @@
 								<div class="card-body">
 									<span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
 									<div class="dash-widget-info">
-
-										<?php 
-											include 'includes/db.php';
-
-											try{
-												$qms = "SELECT COUNT(*) AS numrows FROM messages";
-												$pms = $db->prepare($qms);
-												$pms->execute();
-												$dpms = $pms->fetch();
-
-											}catch(PDOException $e){
-												echo $e->getMessage();
-											}
-										?>
-										<h3><?php echo $dpms['numrows'] ?></h3>
+										<h3>37</h3>
 										<span>Tasks</span>
 									</div>
 								</div>
@@ -90,16 +76,13 @@
 											include 'includes/db.php';
 
 											try{
-												$qct = "SELECT COUNT(*) AS numrows FROM users WHERE isAdmin = 0";
-												$pct = $db->prepare($qct);
-												$pct->execute();
-												$dpct = $pct->fetch();
+												$
 
 											}catch(PDOException $e){
 												echo $e->getMessage();
 											}
 										?>
-										<h3><?php echo $dpct['numrows'] ?></h3>
+										<h3>218</h3>
 										<span>Clients</span>
 									</div>
 								</div>

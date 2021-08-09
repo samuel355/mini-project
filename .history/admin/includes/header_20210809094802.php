@@ -79,7 +79,7 @@
                                         while($data = $prep->fetch(PDO::FETCH_ASSOC)){
                                             echo '
                                                 <li class="notification-message">
-                                                    <a href="activities.php">
+                                                    <a href="activities.html">
                                                         <div class="media">
                                                             <span class="avatar">
                                                                 <img alt="" src="assets/img/profiles/avatar-02.jpg">
@@ -114,7 +114,7 @@
                         <span><?php echo $row['firstname'] ?></span>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="admin-profile.php">My Profile</a>
+                        <a class="dropdown-item" href="admin-profil.php">My Profile</a>
                         <a class="dropdown-item" href="settings.php">Settings</a>
                         <a class="dropdown-item" href="logout.php">Logout</a>
                     </div>

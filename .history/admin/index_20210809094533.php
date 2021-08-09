@@ -66,8 +66,8 @@
 											include 'includes/db.php';
 
 											try{
-												$qms = "SELECT COUNT(*) AS numrows FROM messages";
-												$pms = $db->prepare($qms);
+												$qms = "SELECT COUNT(*) AS numrows FROM messages WHERE isAdmin = 0";
+												$pms = $db->prepare($pms);
 												$pms->execute();
 												$dpms = $pms->fetch();
 
